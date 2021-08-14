@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import phones from "../services/phones";
 
-const NewPerson = ({ persons, setPersons }) => {
+const NewPerson = ({ persons, setPersons, setNotification }) => {
   const [newName, setNewName] = useState("");
   const [newNumber, setNewNumber] = useState("");
 
@@ -22,7 +22,7 @@ const NewPerson = ({ persons, setPersons }) => {
             );
           });
       }
-
+      handleNotification("Changed", repeat.name);
       return;
     }
     phones
@@ -30,6 +30,14 @@ const NewPerson = ({ persons, setPersons }) => {
       .then((response) => {
         setPersons([...persons, response.data]);
       });
+    handleNotification("Added", newName);
+  };
+
+  const handleNotification = (message, name) => {
+    setNotification({ message: `${message} ${name}`, type: "notification" });
+    setTimeout(() => {
+      setNotification(null);
+    }, 2000);
   };
 
   const handleChangeName = (e) => {

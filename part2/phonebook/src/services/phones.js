@@ -6,6 +6,10 @@ const getAll = () => {
   return axios(baseUrl);
 };
 
+const getById = (id) => {
+  return axios.get(`${baseUrl}/${id}`);
+};
+
 const createPhone = (phone) => {
   return axios.post(baseUrl, phone);
 };
@@ -21,6 +25,7 @@ const deletePhone = (id) => {
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   getAll: getAll,
+  getById: getById,
   createPhone: createPhone,
   updatePhone: updatePhone,
   deletePhone: deletePhone,

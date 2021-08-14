@@ -1,0 +1,25 @@
+.notification {
+  border: 2px solid;
+  border-radius: 5px;
+  border-color: green;
+  background-color: lightgrey;
+}
+
+.notification p {
+  color: green;
+  font-size: 20px;
+  margin: 5px;
+}
+
+.error {
+  border: 2px solid;
+  border-radius: 5px;
+  border-color: red;
+  background-color: lightgrey;
+}
+
+.error p {
+  color: red;
+  font-size: 20px;
+  margin: 5px;
+}
